@@ -1,0 +1,133 @@
+/* 룸메 정책 페이지 공통 스타일.
+   외부 폰트나 CDN을 쓰지 않는다 — 정책 페이지는 어떤 네트워크에서도
+   열려야 하고, 심사자가 보는 순간 폰트가 안 뜨면 곤란하다.
+
+   색은 앱(app/lib/core/theme/app_colors.dart)과 맞췄다.
+   clay(#B9704E)는 흰 글자와의 대비가 3.8:1 이라 본문 링크·작은 글자에는
+   한 단계 진한 clay(--primary)를 쓴다. */
+
+:root {
+  --ink: #2b2621;
+  --muted: #6b6157;
+  --line: #e2dad0;
+  --primary: #9a5536;
+  --accent: #b9704e;
+  --bg: #f7f3ed;
+  --surface: #fffdfa;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
+    "Malgun Gothic", "Noto Sans KR", sans-serif;
+  line-height: 1.75;
+  -webkit-text-size-adjust: 100%;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+header {
+  background: linear-gradient(165deg, #9a5536 0%, #a9613f 55%, #b9704e 100%);
+  color: #fff;
+  padding: 40px 24px 32px;
+}
+
+header .inner,
+main,
+footer .inner { max-width: 760px; margin: 0 auto; }
+
+header h1 { margin: 0 0 6px; font-size: 26px; letter-spacing: -0.4px; }
+header p { margin: 0; opacity: 0.92; font-size: 14px; }
+
+nav { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+
+nav a {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 99px;
+  background: rgba(43, 38, 33, 0.18);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+nav a:hover { background: rgba(43, 38, 33, 0.3); }
+nav a[aria-current="page"] { background: var(--surface); color: var(--primary); }
+
+main {
+  background: var(--surface);
+  padding: 36px 28px 48px;
+  margin-top: -16px;
+  border-radius: 18px 18px 0 0;
+  min-height: 50vh;
+}
+
+main h2 {
+  margin: 34px 0 10px;
+  font-size: 19px;
+  letter-spacing: -0.2px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--line);
+}
+
+main h2:first-of-type { margin-top: 0; }
+main h3 { margin: 22px 0 6px; font-size: 15.5px; }
+main p, main li { font-size: 15px; }
+main ul, main ol { padding-left: 20px; }
+main li { margin-bottom: 6px; }
+
+.meta {
+  font-size: 13.5px;
+  color: var(--muted);
+  background: var(--bg);
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 28px;
+}
+
+.note {
+  border-left: 3px solid var(--accent);
+  padding: 2px 0 2px 14px;
+  margin: 16px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 14px;
+  display: block;
+  overflow-x: auto;
+}
+
+th, td {
+  border: 1px solid var(--line);
+  padding: 9px 11px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th { background: var(--bg); font-weight: 700; white-space: nowrap; }
+
+a { color: var(--primary); }
+
+footer {
+  padding: 24px;
+  color: var(--muted);
+  font-size: 13px;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 520px) {
+  header { padding: 28px 16px 26px; }
+  main { padding: 26px 16px 36px; }
+}
